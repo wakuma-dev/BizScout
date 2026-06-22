@@ -26,7 +26,7 @@ const features: FeatureProps[] = [
 
 export default function FeatureDesc() {
     return (
-        <section className="bg-white px-4 md:px-8 lg:px-12 py-14">
+        <section className="bg-white px-4 md:px-8 lg:px-12 py-8 lg:py-10">
             {/* Header Block */}
             <div className="flex flex-col items-start gap-2 mb-16">
                 <h5 className="text-[30px] leading-[38px] lg:text-[60px] lg:leading-[60px] font-lora text-[#252423] font-normal">

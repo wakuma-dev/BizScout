@@ -30,8 +30,8 @@ const AboutDesc: AboutProps[] = [
 
 export default function FeatureAbout() {
     return (
-        <section className="w-full h-auto min-h-[80vh] px-4 md:px-8 lg:px-12 py-12 bg-[#FAF7F4]">
-            <div className="flex flex-col items-center justify-center text-center gap-6">
+        <section className="w-full h-auto min-h-[80vh] px-4 md:px-8 lg:px-12 py-8 lg:py-10 bg-[#FAF7F4]">
+            <div className="flex flex-col items-center justify-center text-center gap-3 lg:gap-6">
                 <h3 className="text-[30px] leading-[38px] lg:text-[60px] lg:leading-[60px] text-[#252423] font-lora font-normal">
                     Deals Don't Close <span className="text-[#C4963C]">Themselves.</span>
                 </h3>
@@ -40,7 +40,7 @@ export default function FeatureAbout() {
                 </p>
             </div>
             
-            <div className="flex flex-col lg:flex-row w-full items-start gap-8 py-16">
+            <div className="flex flex-col lg:flex-row w-full items-start gap-8 py-8 lg:py-12">
                 {AboutDesc.map((item) => {
                     return (
                         <div key={item.id} className="flex flex-col items-start gap-2 flex-1">

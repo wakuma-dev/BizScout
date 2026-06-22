@@ -20,8 +20,8 @@ export default function FeatureHero(){
     const navigate = useNavigate();
     const disabled = false;
     return(
-        <section className="w-full min-h-[80dvh] px-4 md:px-8 lg:px-12 bg-[#181614]">
-            <div className="flex flex-col lg:flex-row justify-between gap-8 py-6 lg:py-20">
+        <section className="w-full min-h-[80dvh] px-4 md:px-8 lg:px-12 py-8 lg:py-10 bg-[#181614]">
+            <div className="flex flex-col lg:flex-row justify-between gap-8">
                 <div className="flex flex-col items-start  gap-6">
                     <h3 className="text-white font-lora text-[36px] leading-[38px] lg:text-[68px] lg:leading-[68px] font-medium">Acquisition <br />Done <span className="text-[#FFD08B]">  for you</span>
                   </h3>
@@ -33,7 +33,7 @@ export default function FeatureHero(){
                       text= "Explore Private Client"
                       className="w-full lg:w-fit"
                       />
-                    <div className="flex items-start gap-x-20 ">
+                    <div className="flex items-start gap-x-10 lg:gap-x-20 ">
                         <div className="flex flex-col items-start gap-2 border-l border-zinc-700 pl-2">
                             <span className="font-lora text-[30px] leading-[36px] font-medium text-[#ffd08b]">$5M+</span>
                             <p className="text-[12px] leading-[16px] font-normal font-inter text-[#858382]">DEAL SIZE</p>

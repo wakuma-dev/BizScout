@@ -2,6 +2,7 @@ import { memo } from "react";
 import Logo from "./Logo";
 import NavMenu from "./NavMenu";
 import Cta from "./Cta";
+import MobileMenu from "./MobileMenu";
 type NavbarProps = {
     isScrolled: boolean;
 }
@@ -14,6 +15,7 @@ function Navbar({isScrolled}: NavbarProps) {
         <NavMenu />
     </div>
         <Cta />
+        <MobileMenu />
     </nav>
     );
 }

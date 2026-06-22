@@ -1,11 +1,14 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../../components/common/Button';
+import img3 from '../../../assets/102-removebg-preview.png';
+import img2 from '../../../assets/101-removebg-preview.png';
+import img from '../../../assets/103-removebg-preview.png';
 
-// 1. Core Interfaces & Types defined outside the component function
 type ButtonProps = {
     text: string;
     onClick: () => void;
-    disabled?: boolean; // Fixed invalid type reference
+    disabled?: boolean;
 };
 
 interface ServiceItem {
@@ -17,12 +20,12 @@ interface RoleData {
     subHeader: string;
     items: ServiceItem[];
     image: string;
-    buttonText: string; // Dynamic text placeholder for your CTA action button
+    buttonText: string; 
+    path: string;
 }
 
 type TabRole = "Buyers" | "Sellers" | "Brokers";
 
-// 2. Static dataset structured cleanly
 const servicesData: Record<TabRole, RoleData> = {
     Buyers: {
         header: "Stop Searching. Start Owning.",
@@ -33,8 +36,9 @@ const servicesData: Record<TabRole, RoleData> = {
             { list: "Model returns with the same data PE firms use" },
             { list: "Catch new deals the moment they’re posted" }
         ],
-        image: "/images/buyers-preview.png",
-        buttonText: "Explore Buyer Tools" // Custom CTA text
+        image: img,
+        buttonText: "Explore Buyer Tools",
+        path: "/forBuyersFeature"
     },
     Sellers: {
         header: "Your Business, In Front of the Right Buyers.",
@@ -45,8 +49,9 @@ const servicesData: Record<TabRole, RoleData> = {
             { list: "Transparent Pricing" },
             { list: "Faster Sales With DealOS" }
         ],
-        image: "/images/sellers-preview.png",
-        buttonText: "Explore Seller Tools" // Custom CTA text
+        image: img2,
+        buttonText: "Explore Seller Tools",
+        path: "/sellers"
     },
     Brokers: {
         header: "Close More. Chase Less.",
@@ -57,20 +62,39 @@ const servicesData: Record<TabRole, RoleData> = {
             { list: "Co-Broker Marketplace" },
             { list: "Zero Platform Fees" }
         ],
-        image: "/images/brokers-preview.png",
-        buttonText: "Explore Broker Tools" // Custom CTA text
+        image: img3,
+        buttonText: "Explore Broker Tools",
+        path: "/brokers"
     }
 };
 
 export default function FeatureTeam() {
-    // 3. Track active tab layout state
     const [activeTab, setActiveTab] = useState<TabRole>("Buyers");
     const currentData = servicesData[activeTab];
+    const navigate = useNavigate();
+    const disabled = false;
 
     return (
-        <section className='py-16 px-4 md:px-8 lg:px-12 w-full h-auto min-h-[80dvh] bg-[#fff]'>
+        <section className='py-8 lg:py-10 px-4 md:px-8 lg:px-12 w-full h-auto min-h-[80dvh] bg-[#fff]'>
+            {/* Embedded Smooth Entry Animation Styles */}
+            <style>{`
+                @keyframes tabTabFadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(12px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                .animate-tab-change {
+                    animation: tabTabFadeInUp 450ms cubic-bezier(0.215, 0.610, 0.355, 1) both;
+                }
+            `}</style>
+
             {/* Header Section */}
-            <div className='flex flex-col items-center justify-center text-center gap-3 py-4 max-w-3xl mx-auto mb-12'>
+            <div className='flex flex-col items-center justify-center text-center gap-3 py-4 max-w-3xl mx-auto mb-6'>
                 <h3 className='text-[36px] leading-[44px] lg:text-[60px] lg:leading-[60px] font-lora font-normal text-[#252423]'>
                     Every Role. <span className='text-[#c4963c]'>Covered.</span>
                 </h3>
@@ -80,12 +104,12 @@ export default function FeatureTeam() {
             </div>
 
             {/* Tab Controls Navigation */}
-            <div className='flex justify-center gap-2 max-w-md mx-auto mb-16 border border-[#E5E2DE] p-1.5 rounded-full bg-white'>
+            <div className='flex justify-center gap-2 max-w-md mx-auto mb-6 border border-[#E5E2DE] p-1.5 rounded-full bg-white'>
                 {(["Buyers", "Sellers", "Brokers"] as TabRole[]).map((role) => (
                     <button
                         key={role}
                         onClick={() => setActiveTab(role)}
-                        className={`flex-1 py-2.5 px-4 rounded-full text-[14px] font-inter font-medium tracking-wide transition-all duration-200 
+                        className={`cursor-pointer flex-1 py-2.5 px-4 rounded-full text-[14px] font-inter font-medium tracking-wide transition-all duration-200 
                             ${activeTab === role
                                 ? 'bg-[#252423] text-[#FAF7F4] shadow-sm'
                                 : 'text-[#5B5957] hover:text-[#252423]'
@@ -98,8 +122,9 @@ export default function FeatureTeam() {
 
             {/* Dynamic Content Grid Showcase */}
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto'>
-                {/* Text Side Content Frame */}
-                <div className='flex flex-col items-start gap-6'>
+                
+                {/* Text Side Content Frame (Animated via key) */}
+                <div key={`${activeTab}-text`} className='flex flex-col items-start gap-6 animate-tab-change'>
                     <h4 className='text-[36px] leading-[40px] font-lora font-normal text-[#252423]'>
                         {currentData.header}
                     </h4>
@@ -108,7 +133,7 @@ export default function FeatureTeam() {
                     </p>
 
                     {/* Features List Mapping */}
-                    <div className='w-full grid grid-cols-1 gap-4 mt-2'>
+                    <div className='w-full grid grid-cols-1 gap-2 lg:gap-4 mt-2'>
                         {currentData.items.map((item, index) => (
                             <div key={index} className='flex items-center gap-3 rounded-xl'>
                                 <span className='w-2 h-2 rounded-full bg-[#c4963c] flex-shrink-0' />
@@ -117,19 +142,23 @@ export default function FeatureTeam() {
                         ))}
                     </div>
 
-                    {/* Interactive Button Rendering Dynamic Text Data */}
-                    <div className='mt-4'>
-                        <Button>
-                            {currentData.buttonText}
-                        </Button>
+                    <div className='mt-2'>
+                        <Button 
+                            text={currentData.buttonText}
+                            onClick={() => navigate(currentData.path)}
+                            disabled={disabled}
+                        />
                     </div>
                 </div>
 
-                {/* Interface Visual Mockup Placeholder Box */}
-                <div className='w-full h-[320px] lg:h-[480px] bg-white border border-[#E5E2DE] rounded-2xl p-4 shadow-sm flex items-center justify-center text-center'>
-                    <p className='text-[#5B5957] font-inter italic text-[14px]'>
-                        [ Interface Mockup Preview: {currentData.image} ]
-                    </p>
+                {/* Interface Visual Mockup Showcase Container (Animated via key simultaneously) */}
+                <div key={`${activeTab}-image`} className='hidden lg:block w-full h-[320px] lg:h-[480px] 
+                overflow-hidden flex items-center justify-center animate-tab-change'>
+                    <img 
+                        src={currentData.image} 
+                        alt={`${activeTab} dashboard interface mockup`} 
+                        className='w-full h-full object-contain'
+                    />
                 </div>
             </div>
         </section>

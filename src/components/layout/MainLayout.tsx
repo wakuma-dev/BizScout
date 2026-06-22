@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Navbar from "../navbar/Navbar";
 import { Outlet } from 'react-router-dom';
+import Footer from '../footer/Footer';
 export default function MainLayout(){
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
    useEffect(() => {
@@ -15,9 +16,10 @@ export default function MainLayout(){
     return(
     <>
      <Navbar isScrolled={isScrolled} />
-     <main className='pt-18'>
+     <main className='pt-20'>
         <Outlet />
      </main>
+     <Footer />
     </>
     )
 }

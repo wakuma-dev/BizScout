@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import ScrollToTop from "../../components/common/ScrollToTop";
 import MainLayout from "../../components/layout/MainLayout";
 import AuthLayout from "../../components/layout/AuthLayout";
+import FeatureProductList from "../../pages/buyers/components/FeatureProductList";
+import FeatureDetails from "../../pages/buyers/FeatureDetails";
 
 const Buyers = lazy(() => import("../../pages/buyers/Buyers"));
 const Private = lazy(() => import("../../pages/buyers/Private"));
@@ -13,6 +15,13 @@ const Seller = lazy(() => import("../../pages/sellers/Sellers"));
 const Partners = lazy(() => import("../../pages/partners/Partners"));
 const Login = lazy(() => import("../../pages/auth/Login"));
 const Feature = lazy(() => import("../../pages/buyers/Feature"));
+const Blog = lazy(() => import("../../pages/blog/Blog"));
+const Careers = lazy(() => import("../../pages/careers/Careers"));
+const Terms = lazy(() => import("../../pages/terms/Terms"));
+const Policy = lazy(() => import("../../pages/policy/Policy"));
+const Faqs = lazy(() => import("../../pages/faqs/Faqs"));
+const SellerPricing = lazy(() => import("../../pages/sellerPricing/SellerPricing"));
+const Program = lazy(() => import("../../pages/program/Program"));
 export default function AppRouter() {
   return (
     <Suspense fallback={<div>loading...</div>}>
@@ -28,9 +37,20 @@ export default function AppRouter() {
           <Route path="pricing" element={<Price />} />
           <Route path="sellers" element={<Seller />} />
           <Route path="partners" element={<Partners />} />
+          <Route path="blog" element={<Blog />} />
+          <Route path="careers" element={<Careers />} />
+          <Route path="terms" element={<Terms />} />
+          <Route path="policy" element={<Policy />} />
+          <Route path="faqs" element={<Faqs />} />
+          <Route path="sellerPricing" element={<SellerPricing />} />
+          <Route path="affiliateProgram" element={<Program />} />
+          <Route path="feature">
+          <Route index element={<FeatureProductList />} />
+          <Route path=":productId" element={<FeatureDetails />} />
+          </Route>
         </Route>
         <Route path="/login" element={<AuthLayout />}>
-         <Route path="/login" element={<Login />} />
+         <Route index element={<Login />} />
         </Route>
       </Routes>
 
