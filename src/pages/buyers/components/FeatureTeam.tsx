@@ -5,11 +5,7 @@ import img3 from '../../../assets/102-removebg-preview.png';
 import img2 from '../../../assets/101-removebg-preview.png';
 import img from '../../../assets/103-removebg-preview.png';
 
-type ButtonProps = {
-    text: string;
-    onClick: () => void;
-    disabled?: boolean;
-};
+
 
 interface ServiceItem {
     list: string;

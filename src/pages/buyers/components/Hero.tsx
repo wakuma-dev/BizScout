@@ -1,10 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
-interface HeroProps {
-  text?: string;
-  onClick?: () => void;
-  disabled?: boolean;
-}
+import Button from "../../../components/common/Button";
 interface StatusProps {
     id: number;
     text: string;
@@ -27,16 +22,13 @@ export default function Hero() {
           The Business You Want Exists.{" "} <br />
           <span className="text-[#C4963C]">Go Find It.</span>
         </h1>
-
-        <button
-          onClick={() => navigate("/search")}
-          disabled={disabled}
-          className="w-full md:w-[300px] py-3
-          font-inter text-[16px] leading-[24px] text-[#252423]
-          rounded-full outline-none bg-[#FFD08B]"
-        >
-          Start Your Search
-        </button>
+        <Button
+           onClick={() => navigate("/search")}
+           disabled={disabled}
+           text="Start Your Search"
+           className="w-full md:w-[300px]"
+           />
+      
         <div className="p-2 lg:p-4 w-full lg:w-[600px] rounded-lg bg-white flex items-center justify-between ">
             {Status.map((sta) => {
                 return (
