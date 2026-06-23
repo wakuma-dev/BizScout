@@ -5,7 +5,8 @@ import MainLayout from "../../components/layout/MainLayout";
 import AuthLayout from "../../components/layout/AuthLayout";
 import FeatureProductList from "../../pages/buyers/components/FeatureProductList";
 import FeatureDetails from "../../pages/buyers/FeatureDetails";
-
+import PartnerForm from "../../pages/form/PartnerForm";
+import FormLayout from "../../components/layout/FormLayout";
 const Buyers = lazy(() => import("../../pages/buyers/Buyers"));
 const Private = lazy(() => import("../../pages/buyers/Private"));
 const Resource = lazy(() => import("../../pages/resource/Resource"));
@@ -51,6 +52,9 @@ export default function AppRouter() {
         </Route>
         <Route path="/login" element={<AuthLayout />}>
          <Route index element={<Login />} />
+        </Route>
+        <Route path="/partnerWithBizScout" element={<FormLayout />}>
+          <Route index element={<PartnerForm />} />
         </Route>
       </Routes>
 
