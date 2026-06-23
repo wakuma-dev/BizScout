@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { useReducer, FormEvent } from "react";
+import { useReducer, type FormEvent} from "react";
 
 type InputProps = {
   email: string;
