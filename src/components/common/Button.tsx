@@ -16,7 +16,7 @@ export default function Button({
       onClick={onClick}
       disabled={disabled}
       className={`cursor-pointer rounded-full bg-[#F2C075] text-[#252423]
-      text-[14px] leading-[20px] font-normal font-inter px-8 py-3.5 outline-none ${className}`}
+      text-[16px] leading-[20px] font-medium font-inter px-8 py-2.5 outline-none ${className}`}
     >
       {text}
     </button>

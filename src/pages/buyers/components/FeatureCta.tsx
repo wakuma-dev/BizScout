@@ -12,7 +12,7 @@ export default function FeatureCta(){
     const navigate = useNavigate();
     const disabled = false;
     return(
-        <section className='px-4 md:px-8 lg:px-12 py-8 lg:py-10 w-full '
+        <section className='px-4 md:px-8 lg:px-12 py-8 lg:py-10 w-full'
                 style={bgStyle}>
                     <div className="h-auto min-h-[80vh] flex flex-col items-center justify-center text-center gap-5">
                         <h4 className='text-[36px] leading-[40px] font-lora font-semibold lg:text-[72px] lg:leading-[72px] text-white w-[95%] max-w-[900px]'>

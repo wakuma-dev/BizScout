@@ -4,6 +4,9 @@ import WhyWeChooseUs from "./components/WhyWeChooseUs"
 import Testimonials from "./components/Testimonials"
 import SellersForm from "./components/SellersForm"
 import SellersBenefit from "./components/SellersBenefit"
+import SellersCta from "./components/SellersCta"
+import SellersStats from "./components/SellersStats"
+import SellersFaq from "./components/SellersFaq"
 const Sellers = () => {
   return (
     <main>
@@ -12,9 +15,12 @@ const Sellers = () => {
       </Helmet>
       <SellersHero />
       <WhyWeChooseUs />
+      <SellersStats />
       <SellersBenefit />
       <Testimonials />
       <SellersForm />
+      <SellersFaq />
+      <SellersCta />
     </main>
   )
 }

@@ -23,6 +23,7 @@ const Policy = lazy(() => import("../../pages/policy/Policy"));
 const Faqs = lazy(() => import("../../pages/faqs/Faqs"));
 const SellerPricing = lazy(() => import("../../pages/sellerPricing/SellerPricing"));
 const Program = lazy(() => import("../../pages/program/Program"));
+const OnBoarding = lazy(() => import("../../pages/OnBoarding"));
 export default function AppRouter() {
   return (
     <Suspense fallback={<div>loading...</div>}>
@@ -45,6 +46,7 @@ export default function AppRouter() {
           <Route path="faqs" element={<Faqs />} />
           <Route path="sellerPricing" element={<SellerPricing />} />
           <Route path="affiliateProgram" element={<Program />} />
+          <Route path="/onBoarding" element={<OnBoarding />} />
           <Route path="feature">
           <Route index element={<FeatureProductList />} />
           <Route path=":productId" element={<FeatureDetails />} />
