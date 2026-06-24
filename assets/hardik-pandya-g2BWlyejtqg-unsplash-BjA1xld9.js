@@ -1,0 +1,1 @@
+import{o as e}from"./index-OYqWc2wy.js";var t=e(`chevron-up`,[[`path`,{d:`m18 15-6-6-6 6`,key:`153udz`}]]),n=`/BizScout/assets/hardik-pandya-g2BWlyejtqg-unsplash-OsAJ5qaC.jpg`;export{t as n,n as t};
