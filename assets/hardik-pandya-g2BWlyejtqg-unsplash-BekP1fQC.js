@@ -1,0 +1,1 @@
+var e=`/BizScout/assets/hardik-pandya-g2BWlyejtqg-unsplash-OsAJ5qaC.jpg`;export{e as t};
