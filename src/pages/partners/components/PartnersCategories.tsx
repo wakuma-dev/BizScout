@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import img1 from '../../../assets/banner/1.png'
 import img2 from '../../../assets/banner/2.png'
 import img3 from '../../../assets/banner/3.png'
@@ -64,19 +64,19 @@ const categoriesData: CategoriesProps[] = [
 ]
 
 const PartnersCategories = () => {
-  // Container variant to handle cascading/staggered child animations
-  const containerVariants = {
+  // Explicitly typing as Variants solves the generic string inference issue
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1 // Time gap between each card's animation
+        staggerChildren: 0.1
       }
     }
   };
 
-  // Individual card animation settings
-  const cardVariants = {
+  // Explicitly typing as Variants locks down the 'ease' property type requirements
+  const cardVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     show: { 
       opacity: 1, 
