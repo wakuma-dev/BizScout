@@ -41,7 +41,7 @@ const footerLinks: FooterLinkItem[] = [
     },
     {
     id: 8,
-    path: "/affiliateProgram",
+    path: "/partners",
     name: "Affiliate Program"
     }
 ];
