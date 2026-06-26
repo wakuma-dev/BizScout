@@ -1,6 +1,11 @@
+import { Helmet } from "react-helmet-async"
 const Terms = () => {
   return (
-    <div>Terms</div>
+    <main>
+      <Helmet>
+        <title>Tools & Resources - Free Calculator and Acquisition Guides | BizScout</title>
+      </Helmet>
+    </main>
   )
 }
 
