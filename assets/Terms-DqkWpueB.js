@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-DVpe7PXp.js";import{t}from"./index.esm-h3Av6tuF.js";var n=e(),r=()=>(0,n.jsx)(`main`,{children:(0,n.jsx)(t,{children:(0,n.jsx)(`title`,{children:`Tools & Resources - Free Calculator and Acquisition Guides | BizScout`})})});export{r as default};
