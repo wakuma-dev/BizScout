@@ -66,7 +66,7 @@ export default function Hero() {
               alt="Bright marketplace workspace representation" 
               className="aspect-[4/3] w-full h-[400px] object-cover block md:aspect-[16/10] lg:aspect-[4/5]"
               loading="eager"
-              priority="true" // Optional custom prop if your framework supports it
+           
             />
           </div>
         </div>
