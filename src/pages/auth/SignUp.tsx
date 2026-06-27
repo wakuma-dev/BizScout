@@ -4,7 +4,7 @@ import { useAuthStore } from '../../app/store/useAuthStore'; // Adjust to your r
 import { Helmet } from 'react-helmet-async';
 
 // Directly importing your local asset graphic context file
-import uploadedSampleImg from '../../assets/1024.jpg';
+
 
 interface ListingProps {
   image: string;
@@ -20,7 +20,7 @@ interface ListingProps {
 
 const listingsCarousel: ListingProps[] = [
   {
-    image: uploadedSampleImg, // Using your design upload configuration here
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200", // Using your design upload configuration here
     category: "RESTAURANTS & FOOD",
     location: "LOS ANGELES, CA",
     title: "Healthy Lunch Restaurant",

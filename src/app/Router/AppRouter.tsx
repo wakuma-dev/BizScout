@@ -53,10 +53,10 @@ export default function AppRouter() {
           <Route path=":productId" element={<FeatureDetails />} />
           </Route>
         </Route>
-        <Route path="/login" element={<AuthLayout />}>
-         <Route index element={<Login />} />
-         <Route path="/signUp" element={<SignUpPage />} />
-        </Route>
+       <Route element={<AuthLayout />}>
+       <Route path="login" element={<Login />} />
+       <Route path="signUp" element={<SignUpPage />} />
+       </Route>
         <Route path="/partnerWithBizScout" element={<FormLayout />}>
           <Route index element={<PartnerForm />} />
         </Route>
