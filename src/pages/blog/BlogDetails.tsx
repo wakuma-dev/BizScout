@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Calendar, Clock, ArrowLeft, Share2, Bookmark } from 'lucide-react';
 import { CiLinkedin } from "react-icons/ci";
