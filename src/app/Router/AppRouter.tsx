@@ -8,6 +8,11 @@ import FeatureDetails from "../../pages/buyers/FeatureDetails";
 import PartnerForm from "../../pages/form/PartnerForm";
 import FormLayout from "../../components/layout/FormLayout";
 import SignUpPage from "../../pages/auth/SignUp";
+
+// Import your new components (using lazy loading for optimized code-splitting)
+import BlogList from "../../pages/blog/components/BlogList";       // Adjust path if needed
+import BlogDetails from "../../pages/blog/BlogDetails"; // Adjust path if needed
+
 const Buyers = lazy(() => import("../../pages/buyers/Buyers"));
 const Private = lazy(() => import("../../pages/buyers/Private"));
 const Resource = lazy(() => import("../../pages/resource/Resource"));
@@ -17,7 +22,6 @@ const Seller = lazy(() => import("../../pages/sellers/Sellers"));
 const Partners = lazy(() => import("../../pages/partners/Partners"));
 const Login = lazy(() => import("../../pages/auth/Login"));
 const Feature = lazy(() => import("../../pages/buyers/Feature"));
-const Blog = lazy(() => import("../../pages/blog/Blog"));
 const Careers = lazy(() => import("../../pages/careers/Careers"));
 const Terms = lazy(() => import("../../pages/terms/Terms"));
 const Policy = lazy(() => import("../../pages/policy/Policy"));
@@ -25,12 +29,14 @@ const Faqs = lazy(() => import("../../pages/faqs/Faqs"));
 const SellerPricing = lazy(() => import("../../pages/sellerPricing/SellerPricing"));
 const Program = lazy(() => import("../../pages/program/Program"));
 const OnBoarding = lazy(() => import("../../pages/OnBoarding"));
+
 export default function AppRouter() {
   return (
     <Suspense fallback={<div>loading...</div>}>
       <ScrollToTop />
 
       <Routes>
+        {/* Main Application Layout Routes */}
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Feature />} />
           <Route path="forBuyersFeature" element={<Buyers />} />
@@ -40,23 +46,34 @@ export default function AppRouter() {
           <Route path="pricing" element={<Price />} />
           <Route path="sellers" element={<Seller />} />
           <Route path="partners" element={<Partners />} />
-          <Route path="blog" element={<Blog />} />
+          
+          {/* NEW: Nested Blog Configuration */}
+          <Route path="blog">
+            <Route index element={<BlogList />} />
+            <Route path=":productId" element={<BlogDetails />} />
+          </Route>
+
           <Route path="careers" element={<Careers />} />
           <Route path="terms" element={<Terms />} />
           <Route path="policy" element={<Policy />} />
           <Route path="faqs" element={<Faqs />} />
           <Route path="sellerPricing" element={<SellerPricing />} />
           <Route path="affiliateProgram" element={<Program />} />
-          <Route path="/onBoarding" element={<OnBoarding />} />
+          <Route path="onBoarding" element={<OnBoarding />} />
+          
           <Route path="feature">
-          <Route index element={<FeatureProductList />} />
-          <Route path=":productId" element={<FeatureDetails />} />
+            <Route index element={<FeatureProductList />} />
+            <Route path=":productId" element={<FeatureDetails />} />
           </Route>
         </Route>
-       <Route element={<AuthLayout />}>
-       <Route path="login" element={<Login />} />
-       <Route path="signUp" element={<SignUpPage />} />
-       </Route>
+
+        {/* Dedicated Auth Layout Routes */}
+        <Route element={<AuthLayout />}>
+          <Route path="login" element={<Login />} />
+          <Route path="signUp" element={<SignUpPage />} />
+        </Route>
+
+        {/* External Form Layout Routes */}
         <Route path="/partnerWithBizScout" element={<FormLayout />}>
           <Route index element={<PartnerForm />} />
         </Route>
